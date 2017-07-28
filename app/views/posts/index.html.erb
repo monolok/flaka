@@ -1,20 +1,19 @@
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" id="img-header">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
+                        <h1>PourMoi</h1>
+                        <%= social_share_button_tag("test") %>
                         <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        <span class="subheading" id="click" data-toggle="modal" data-target="#myModal">Por qué estás aquí?</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
 
     <!-- Main Content -->
     <div class="container">
@@ -76,4 +75,45 @@
                 </ul>
             </div>
         </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Por qué estás aquí?</h4>
+          </div>
+          <div class="modal-body">
+¿No te ha pasado infinidad de  veces que admiras a alguien por lo que hace, y te decís a  vos misma/o:
+
+“¡que bueno lo que  hace! Quisiera poder hacerlo yo también…”
+
+“Que lindo, ¿cómo hace?”
+
+Y que en medio de  tu  deseo de ser eso que QUERÉS SER, viene  automáticamente a tu cerebro un pensamiento negativo que  boicotea hasta tu sueño?
+
+No te parece INJUSTO que tu mente  limite HASTA tu propia imaginación?
+
+No te pasa que no haces  un montón de  cambios en tu vida por miedo a todo?
+
+No te pasa que no te animas a hacer ESO que admiras de los demás porque  pensás que  vos no podes ?
+
+A mi me pasó y ME  SIGUE PASANDO, pero un día me dije BASTA!! Basta de no hacer lo que quiero hacer!
+Y entendí que la mejor manera  de  vencer esos miedos, era enfrentándolos.
+
+¿Total?¿ que es lo peor que puede  pasar?
+Hoy estás, mañana quien sabe…
+
+Si tenes  ganas de sentirte  vivo/a , estás en el lugar correcto, porque no voy a dejar que  ni vos ni yo nos rindamos.
+
+NO VOY A  PARAR HASTA QUE TUS DESEOS SE ASUMAN, SE PONGAN EN PALABRAS Y SE HAGAN REALIDAD!!!
+          </div>
+          <div class="modal-footer">
+            <%= social_share_button_tag("test") %>
+          </div>
+        </div>
+      </div>
     </div>

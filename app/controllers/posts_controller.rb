@@ -16,4 +16,8 @@ class PostsController < ApplicationController
 		
 	end
 
+	def video
+		
+	end
+
 end

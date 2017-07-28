@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get "/flaka", to: "posts#about", as: "flaka"
   get "/category", to: "posts#category", as: "category"
   get "/contact", to: "posts#contact", as: "contact"
+  get "/video", to: "posts#video", as: "video"
 
 end

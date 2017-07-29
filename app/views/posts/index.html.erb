@@ -27,18 +27,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h3>Por qué estás aquí?</h3><%= social_share_button_tag("test") %>
-                <p>¿No te ha pasado infinidad de  veces que admiras a alguien por lo que hace, y te decís a  vos misma/o:</p>
-                <p>“¡que bueno lo que  hace! Quisiera poder hacerlo yo también…”</p>
-                <p>“Que lindo, ¿cómo hace?”</p>
-                <p>Y que en medio de  tu  deseo de ser eso que QUERÉS SER, viene  automáticamente a tu cerebro un pensamiento negativo que  boicotea hasta tu sueño?</p>
-                <p>No te parece INJUSTO que tu mente  limite HASTA tu propia imaginación?</p>
-                <p>No te pasa que no haces  un montón de  cambios en tu vida por miedo a todo?</p>
-                <p>No te pasa que no te animas a hacer ESO que admiras de los demás porque  pensás que  vos no podes ?</p>
-                <p>A mi me pasó y ME  SIGUE PASANDO, pero un día me dije BASTA!! Basta de no hacer lo que quiero hacer! Y entendí que la mejor manera  de  vencer esos miedos, era enfrentándolos.</p>
-                <p>¿Total?¿ que es lo peor que puede  pasar? Hoy estás, mañana quien sabe…</p>
-                <p>Si tenes  ganas de sentirte  vivo/a , estás en el lugar correcto, porque no voy a dejar que  ni vos ni yo nos rindamos.</p>
-                <p>NO VOY A  PARAR HASTA QUE TUS DESEOS SE ASUMAN, SE PONGAN EN PALABRAS Y SE HAGAN REALIDAD!!!</p>
+                <h3><%= @post.title %></h3><%= social_share_button_tag("test") %>
+                <div><%= raw @post.body %></div>
             </div>
         </div>
     </div>

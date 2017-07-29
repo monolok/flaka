@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 	before_action :authenticate_admin!, except: [:index, :show, :about, :category, :contact, :instagram, :video]
 
 	def index
-		@posts = Post.all
 	end
 
 	def new
@@ -11,8 +10,8 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new
-		if @post.save(post_params)
+		@post = Post.new(post_params)
+		if @post.save
 			flash[:notice] = "Successfully created post!"
 			redirect_to post_path(@post)
 		else
@@ -50,6 +49,7 @@ class PostsController < ApplicationController
 	end
 
 	def category
+		@posts = Post.all
 	end
 
 	def contact
@@ -64,11 +64,11 @@ class PostsController < ApplicationController
   private
 
 	def post_params
-	params.require(:post).permit(:title, :body)
+		params.require(:post).permit(:title, :body)
 	end
 
 	def find_post
-	@post = Post.find(params[:id])
+		@post = Post.find(params[:id])
 	end
 
 end

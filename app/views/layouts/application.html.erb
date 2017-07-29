@@ -19,7 +19,10 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <%= link_to "PM", root_path, class: "navbar-brand" %>
+                <%= link_to "PourMoi", root_path, class: "navbar-brand" %>
+                <a class="fa click navbar-brand" data-toggle="modal" data-target=".bs-example-modal-sm">
+                    Seguir <i class="fa fa-envelope-open-o"></i>
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,6 +36,9 @@
                     </li>
                     <li>
                         <%= link_to "YouTube", video_path %>
+                    </li>
+                    <li>
+                        <%= link_to "Instagram", instagram_path %>
                     </li>
                     <li>
                         <%= link_to "Contacto", contact_path %>
@@ -62,10 +68,10 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com/ime.isa.5?ref=br_rs" target="_blank">
-                                <span class="fa-stack fa-lg">
+                            <a class="click">
+                                <span class="fa-stack fa-lg" data-toggle="modal" data-target=".bs-example-modal-sm">
                                     <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    <i class="fa fa-envelope-open-o fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
@@ -78,10 +84,29 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; PourMoi <%= Time.now.year%></p>
+                    <p class="copyright text-muted">Copyright &copy; <%= link_to "PourMoi", new_post_path%> <%= Time.now.year%></p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Small modal -->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <h4 class="modal-title text-center text-primary">- SEGUIME -</h4>
+            <p>Dejame tu dirección de Correo Electronico y te avisaré cada vez que hay un nuevo post!</p>
+            <p>Únete a otros 30000000 seguidores</p>
+            <form class="text-center">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <button type="button" class="btn btn-primary btn-lg text-center">SEGUIR</button>
+            </form>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

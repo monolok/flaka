@@ -1,3 +1,3 @@
 SocialShareButton.configure do |config|
-  config.allow_sites = %w(facebook google_plus email linkedin)
+  config.allow_sites = %w(facebook google_plus email twitter)
 end

@@ -27,11 +27,24 @@
                         | <%= link_to 'Edit', edit_post_path(@post) %> |
                           <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
                     <% end %>
+                    <div>
+                        <div class="cat-cat col1">
+                            <span class="click">CAT1</span>,
+                            <span class="click">CAT2</span>,
+                            <span class="click">CAT3</span>
+                        </div>
+                    </div>
                     <div><%= raw @post.body %></div>
                     <p class="subheading">
                         <div class="in">
                             Compártelo: <%= social_share_button_tag("test") %>
-                        </div>                            
+                        </div>                        
+                    </p>
+                    <p>
+                        <div class="cat-cat">
+                            <a href="" class="deco-none">#TAG1</a>,
+                            <a href="" class="deco-none">#TAG2</a>
+                        </div>
                     </p>
                 </div>
             </div>

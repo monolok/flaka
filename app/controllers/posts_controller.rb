@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :authenticate_admin!, except: [:index, :show, :about, :articulos, :contact, :instagram, :video]
 
 	def index
-		@post = Post.where(title: "Por qué estás aquí?").first
+		@post = Post.find(3) #Post.where(title: "Por qué estás aquí?").first
 	end
 
 	def new

@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
 	def new
 	    @post = Post.new
+	    @category = Category.new
+	    @categories = Category.all
 	end
 
 	def create
@@ -21,13 +23,25 @@ class PostsController < ApplicationController
 		end
   	end
 
+  	def create_categories
+  		@category = Category.new(category_params)
+		if @category.save
+			flash[:notice] = "Successfully created category!"
+			redirect_to new_post_path
+		else
+			flash[:alert] = "Error creating new post!"
+			render :new
+		end
+  	end
+
 	def edit
+		@categories = Category.all
 	end
 
 	def update
 		if @post.update_attributes(post_params)
 			flash[:notice] = "Successfully updated post!"
-			redirect_to post_path(@posts)
+			redirect_to post_path(@post)
 		else
 			flash[:alert] = "Error updating post!"
 			render :edit
@@ -40,7 +54,7 @@ class PostsController < ApplicationController
 	def destroy
 		if @post.destroy
 			flash[:notice] = "Successfully deleted post!"
-			redirect_to posts_path
+			redirect_to articulos_path
 		else
 			flash[:alert] = "Error updating post!"
 		end
@@ -49,7 +63,7 @@ class PostsController < ApplicationController
 	def about
 	end
 
-	def category
+	def articulos
 		@posts = Post.all
 	end
 
@@ -65,7 +79,11 @@ class PostsController < ApplicationController
   private
 
 	def post_params
-		params.require(:post).permit(:title, :body)
+		params.require(:post).permit(:title, :body, { category_ids: []})
+	end
+
+	def category_params
+		params.require(:category).permit(:name)
 	end
 
 	def find_post

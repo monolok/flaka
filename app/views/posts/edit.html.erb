@@ -1,3 +1,61 @@
-<h2>Edit Post</h2>
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" id="img-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1 class="text-primary">Admin</h1>
+                    <hr class="small">
+                    <span class="subheading notice"></span>
+                    <span class="subheading alert"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-<%= render "posts/form" %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<a href="#" target="_blank">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+		</div>
+		<div class="col-xs-3">
+			<a href="#" target="_blank">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+		</div>
+		<div class="col-xs-3">
+			<a href="#" target="_blank">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+		</div>
+		<div class="col-xs-3">
+        <%= link_to destroy_admin_session_path, :method => :delete do%>
+        <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-sign-out fa-stack-1x fa-inverse"></i>
+                </span>
+        <%end%>
+		</div>
+	</div>
+	<div class="row">
+        <div class="row">
+           <h2 class="text-center text-success">Edit Post</h2> 
+        </div>
+        <div class="row">
+		  <%= render "posts/form" %>
+        </div>
+	</div>    
+</div>

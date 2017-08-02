@@ -1,0 +1,10 @@
+
+<%= simple_form_for @category do |f| %>
+  <div class="form-group">
+    <%= f.input :name, error: "can't be blank", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.button :submit %>
+  </div>
+<% end %>

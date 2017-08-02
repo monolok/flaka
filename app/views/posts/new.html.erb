@@ -43,12 +43,6 @@
 		</div>
 		<div class="col-xs-3">
         <%= link_to destroy_admin_session_path, :method => :delete do%>
-		<!-- 	<a href="admins/sign_out">
-                <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-sign-out fa-stack-1x fa-inverse"></i>
-                </span>
-            </a> -->
         <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-sign-out fa-stack-1x fa-inverse"></i>
@@ -61,9 +55,21 @@
            <h2 class="text-center text-success">Create New Post</h2> 
         </div>
         <div class="row">
-		  <%= render "posts/form" %>
+            <div class="col-xs-12">
+               <%= render "posts/form" %> 
+            </div>
         </div>
 	</div>
+    <div class="row">
+        <div class="row">
+           <h2 class="text-center text-success">Create New categories</h2> 
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <%= render "posts/form_cat" %>
+            </div>
+        </div>
+    </div>    
 </div>
 
 

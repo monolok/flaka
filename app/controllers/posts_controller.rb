@@ -34,6 +34,16 @@ class PostsController < ApplicationController
 		end
   	end
 
+  	def destroy_category
+  		@category_on = Category.find(params[:id])
+		if @category_on.destroy
+			flash[:notice] = "Successfully deleted category!"
+			redirect_to new_post_path
+		else
+			flash[:alert] = "Error updating categories!"
+		end
+  	end
+
 	def edit
 		@categories = Category.all
 	end
@@ -49,6 +59,7 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		@categories = @post.categories
 	end
 
 	def destroy
@@ -64,7 +75,13 @@ class PostsController < ApplicationController
 	end
 
 	def articulos
-		@posts = Post.all
+		if params[:id].nil?
+			@posts = Post.all #Post.all.order('created_at DESC')
+		else
+			@category_true = true
+			@category_on = Category.find(params[:id])
+			@posts = @category_on.posts
+		end
 	end
 
 	def contact

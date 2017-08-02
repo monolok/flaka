@@ -1,0 +1,5 @@
+<ul>
+	<% @categories.each do |cat| %>
+		<li><%= link_to cat.name.upcase, remove_category_path(cat.id), method: :delete, class: "col1 click deco-none" %></li>
+	<%end%>
+</ul>

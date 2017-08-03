@@ -75,12 +75,14 @@ class PostsController < ApplicationController
 	end
 
 	def articulos
-		if params[:id].nil?
-			@posts = Post.all #Post.all.order('created_at DESC')
-		else
+		if not params[:id].nil?
 			@category_true = true
 			@category_on = Category.find(params[:id])
 			@posts = @category_on.posts
+		elsif not params[:search].nil?
+			@posts = Post.search(params[:search])
+		else
+			@posts = Post.all #Post.all.order('created_at DESC')
 		end
 	end
 

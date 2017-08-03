@@ -9,12 +9,14 @@
                         <hr class="small">
                         <div class="row">
                           <div class="col-xs-6 col-xs-offset-3">
-                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Buscar...">
-                              <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
-                              </span>
-                            </div><!-- /input-group -->
+                            <%= form_tag(articulos_path, method: :get) do %>
+                                <div class="input-group">
+                                    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar..." %>
+                                    <span class="input-group-btn">
+                                        <%= submit_tag 'Go!', class: "btn btn-default" %>
+                                    </span>
+                                </div>
+                            <% end %>
                           </div><!-- /.col-lg-6 -->
                         </div><!-- /.row -->
                     </div>

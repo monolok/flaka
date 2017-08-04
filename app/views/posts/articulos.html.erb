@@ -28,35 +28,16 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <%if @category_true%>
-                    <p class="text-center text-danger">Articulos de la categoria: <%= @category_on.name.upcase%> | <%= link_to "TODOS", articulos_path%></p>
-                <%end%>
-                <% @posts.each do |post| %>
-                    <div class="post-preview">   
-                        <div>
-                            <% post.categories.each do |cat|%>
-                                <span><%= link_to cat.name.upcase, category_path(cat.id), class: "col1 click deco-none"%></span> |
-                            <%end%>
-                        </div>
-                        <h2 class="post-title">
-                            <%= link_to post.title, post%>
-                        </h2>
-                        <div class="in">
-                            <%= social_share_button_tag("test") %>
-                        </div>
-                        <p class="post-meta">
-                            Posted by <%= link_to "Ime Isa", flaka_path %> on <%= post.created_at.strftime('%b %d, %Y')%>
-                        </p>
-                    </div>
-                    <hr>
-                <% end %>
-                <!-- Pager -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="ajax_articulos" data-id="<%=post_count%>">
+                <%= render "posts/articulos" %>
+            </div>
+            <!-- Pager -->
+            <%if post_count > 5%>
                 <ul class="pager">
                     <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
+                        <a class="click mas">Mas articulos &rarr;</a>
                     </li>
                 </ul>
-            </div>
+            <%end%>
         </div>
     </div>

@@ -75,15 +75,22 @@ class PostsController < ApplicationController
 	end
 
 	def articulos
-		if not params[:id].nil?
+		if not params[:cat_id].nil?
 			@category_true = true
-			@category_on = Category.find(params[:id])
+			@category_on = Category.find(params[:cat_id])
 			@posts = @category_on.posts
 		elsif not params[:search].nil?
 			@posts = Post.search(params[:search])
+		elsif params[:id]
+			@posts = Post.where('id < ?', params[:id]).limit(5)
 		else
-			@posts = Post.all #Post.all.order('created_at DESC')
+			@posts = Post.limit(5)
 		end
+
+	    respond_to do |format|
+	      format.html
+	      format.js
+	    end
 	end
 
 	def contact

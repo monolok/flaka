@@ -7,7 +7,7 @@
                     <div class="site-heading">
                         <h1>Ime Isa</h1>
                         <hr class="small">
-                        <span class="subheading">Creo que somos mucho mas que aquellas etiquetas que nos ponemos por miedo a ser lo que realmente somos y queremos ser...<%= social_share_button_tag("test") %></span>
+                        <span class="subheading"><%= @post_profile.title %><%= social_share_button_tag("test") %></span>
                     </div>
                 </div>
             </div>
@@ -18,9 +18,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae debitis nobis, quod sapiente qui voluptatum, placeat magni repudiandae accusantium fugit quas labore non rerum possimus, corrupti enim modi! Et.</p>
+                <% if admin_signed_in? %>
+                    <%= link_to 'Editar mi descripcion', edit_post_path(@post_profile), class: "text-danger" %>
+                <% end %>
+                <div><%= raw @post_profile.body %></div>
             </div>
         </div>
     </div>

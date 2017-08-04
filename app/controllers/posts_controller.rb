@@ -72,19 +72,20 @@ class PostsController < ApplicationController
 	end
 
 	def about
+		@post_profile = Post.find(6) 
 	end
 
 	def articulos
 		if not params[:cat_id].nil?
 			@category_true = true
 			@category_on = Category.find(params[:cat_id])
-			@posts = @category_on.posts
+			@posts = @category_on.posts.where.not(id: 6)
 		elsif not params[:search].nil?
-			@posts = Post.search(params[:search])
+			@posts = Post.search(params[:search]).where.not(id: 6)
 		elsif params[:id]
-			@posts = Post.where('id < ?', params[:id]).limit(5)
+			@posts = Post.where('id < ?', params[:id]).limit(5).where.not(id: 6)
 		else
-			@posts = Post.limit(5)
+			@posts = Post.limit(5).where.not(id: 6)
 		end
 
 	    respond_to do |format|

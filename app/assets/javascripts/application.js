@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', function() {
             success: function () {
                 var showing_posts = document.getElementsByClassName("post-preview").length;
                 var post_count = document.getElementById("ajax_articulos").dataset.id;
-                if (showing_posts == post_count) {
+                if (showing_posts == (post_count-1)) {
                     $('a.click.mas').hide();
                 }else{
                     // hide the loading gif

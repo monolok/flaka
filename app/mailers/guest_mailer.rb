@@ -5,7 +5,7 @@ class GuestMailer < ApplicationMailer
     @message = message
     @guest_mail = guest_mail
 
-    mail to: "antoinebe35@gmail.com", subject: @subject
+    mail to: "imeisa002@gmail.com", subject: @subject
   end
 
 end

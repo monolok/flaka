@@ -108,7 +108,7 @@ class PostsController < ApplicationController
 		@message = params["message"]
 		@guest_mail = params["guest_mail"]
 		GuestMailer.send_contact(@subject, @message, @guest_mail).deliver_now
-		flash[:notice] = "Mail sent"
+		flash[:mail] = "Mail sent"
 		redirect_to contact_path
 	end
 

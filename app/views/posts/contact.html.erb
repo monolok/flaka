@@ -20,7 +20,6 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <!-- <p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p> -->
                 <p class="text-success"><%= flash[:mail]%></p>
-                <p class="text-danger"><%= flash[:alert]%></p>
                  <%= form_tag(send_path, method: "POST", class: "form-horizontal") do%>
                         <div class="form-group">
                             <%= label_tag(:guest_mail, "Email", class: "col-sm-2") %>

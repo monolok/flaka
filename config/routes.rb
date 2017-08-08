@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/categories", to: "posts#new", as: "categories"
   post "/categories", to: "posts#create_categories"
   delete "/category/:cat_id", to: "posts#destroy_category", as: "remove_category"
+  delete "/delete_img/:url", to: "posts#delete_img", as: "delete_image"
 
   post "/send", to: "posts#mailer_guest", as: "send"
 end

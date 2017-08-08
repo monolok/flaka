@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 	    @post = Post.new
 	    @category = Category.new
 	    @categories = Category.all
+	    @images_url = Cloudinary::Api.resources["resources"]
 	end
 
 	def create
@@ -46,6 +47,7 @@ class PostsController < ApplicationController
 
 	def edit
 		@categories = Category.all
+		@images_url = Cloudinary::Api.resources["resources"]
 	end
 
 	def update
@@ -69,6 +71,12 @@ class PostsController < ApplicationController
 		else
 			flash[:alert] = "Error updating post!"
 		end
+	end
+
+	def delete_img
+		Cloudinary::Uploader.destroy(params[:url])
+		#Ckeditor::Picture.find(params[:url]).delete
+		redirect_to new_post_path
 	end
 
 	def about

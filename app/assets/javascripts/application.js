@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require social-share-button
 //= require ckeditor/init
+//= require cloudinary
 //= require_tree .
 
 // when the page is ready for manipulation

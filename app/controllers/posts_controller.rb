@@ -113,7 +113,9 @@ class PostsController < ApplicationController
 	end
 
 	def add_link
-		Link.create(link_params)
+		url = params[:url] #watch?v=  by embed
+		url["watch?v="] = "embed/"
+		Link.create(url: url)
 		redirect_to video_path
 	end
 
@@ -139,10 +141,6 @@ class PostsController < ApplicationController
 
 	def category_params
 		params.require(:category).permit(:name)
-	end
-
-	def link_params
-		params.permit(:url)
 	end
 
 	def find_post

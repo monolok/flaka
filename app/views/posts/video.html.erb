@@ -21,21 +21,31 @@
     </header>
 
     <div class="container">
+        <% if admin_signed_in? %>
+            <div class="row">
+                <div class="col-sm-12">
+                    <%= form_tag(add_link_path, method: :post) do %>
+                    <div class="input-group">
+                        <%= text_field_tag :url, params[:url], class: "form-control", placeholder: "Add a YouTube link" %>
+                        <span class="input-group-btn">
+                            <%= submit_tag 'Add', class: "btn btn-default" %>
+                        </span>
+                    </div>
+                <% end %>
+                </div>
+            </div>
+            <br>
+        <% end %>
       <div class="row">
-        <div class="col-sm-6">
-       
-          <h2>16:9 Responsive Aspect Ratio</h2>
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>
-    </div>
-        </div>
-        <div class="col-sm-6">
-     
-
-          <h2>4:3 Responsive Aspect Ratio</h2>
-    <div class="embed-responsive embed-responsive-4by3">
-        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>
-    </div>
-        </div>
+        <% @links.each do |link|%>
+            <div class="col-sm-6">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe class="embed-responsive-item" src="<%= link.url%>"></iframe>
+                </div>
+                <% if admin_signed_in? %>
+                    <%= link_to 'Delete', remove_link_path(link.id), method: :delete%>
+                <% end %>
+            </div>
+        <%end%>
       </div>
     </div>

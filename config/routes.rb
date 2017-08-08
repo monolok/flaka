@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/contact", to: "posts#contact", as: "contact"
   get "/instagram", to: "posts#instagram", as: "instagram"
   get "/video", to: "posts#video", as: "video"
+  post "video/add", to: "posts#add_link", as: "add_link"
+  delete "video/:id", to: "posts#remove_link", as: "remove_link"
  
   resources :posts
 

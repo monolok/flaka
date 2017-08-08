@@ -109,6 +109,17 @@ class PostsController < ApplicationController
 	end
 
 	def video
+		@links = Link.all
+	end
+
+	def add_link
+		Link.create(link_params)
+		redirect_to video_path
+	end
+
+	def remove_link
+		Link.find(params[:id]).delete
+		redirect_to video_path
 	end
 
 	def mailer_guest
@@ -128,6 +139,10 @@ class PostsController < ApplicationController
 
 	def category_params
 		params.require(:category).permit(:name)
+	end
+
+	def link_params
+		params.permit(:url)
 	end
 
 	def find_post

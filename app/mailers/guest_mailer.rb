@@ -17,7 +17,7 @@ class GuestMailer < ApplicationMailer
   	# @subscribers = subscribers
   	mail(
       bcc: subscribers.map(&:email).uniq, 
-      subject: "multiple mails"
+      subject: "Mi nuevo articulo para ti - PourMoi - Ime Isa"
     )
   end
 

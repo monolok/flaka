@@ -29,8 +29,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="ajax_articulos" data-id="<%=post_count%>">
-                <%= render "posts/articulos" %>
+                <%= render "posts/articulos" %>               
             </div>
+        </div>
+        <div class="row">
             <!-- Pager -->
             <%if post_count > 5%>
                 <ul class="pager">
@@ -38,6 +40,6 @@
                         <a class="click mas">Mas articulos &rarr;</a>
                     </li>
                 </ul>
-            <%end%>
+            <%end%> 
         </div>
     </div>

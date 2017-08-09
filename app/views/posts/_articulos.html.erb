@@ -2,21 +2,33 @@
     <p class="text-center text-danger">Articulos de la categoria: <%= @category_on.name.upcase%> | <%= link_to "TODOS", articulos_path%></p>
 <%end%>
 <% @posts.each do |post| %>
-    <div class="post-preview" data-id="<%= post.id %>">   
-        <div>
-            <% post.categories.each do |cat|%>
-                <span><%= link_to cat.name.upcase, category_path(cat.id), class: "col1 click deco-none"%></span> |
-            <%end%>
+    <div class="row">
+        <div class="post-preview col-xs-5" data-id="<%= post.id %>">   
+            <div>
+                <% post.categories.each do |cat|%>
+                    <span><%= link_to cat.name.upcase, category_path(cat.id), class: "col1 click deco-none"%></span> |
+                <%end%>
+            </div>
+            <h2 class="post-title">
+                <%= link_to post.title, post%>
+            </h2>
+            <div class="in">
+                <%= social_share_button_tag("test") %>
+            </div>
+            <p class="post-meta">
+                Posted by <%= link_to "Ime Isa", flaka_path %> on <%= post.created_at.strftime('%b %d, %Y')%>
+            </p>
         </div>
-        <h2 class="post-title">
-            <%= link_to post.title, post%>
-        </h2>
-        <div class="in">
-            <%= social_share_button_tag("test") %>
+        <div class="col-xs-7">
+            <% txt=post.body%></p>
+                <% m=Regexp.new('((?:http|https)(?::\\/{2}[\\w]+)(?:[\\/|\\.]?)(?:[^\\s"]*))',Regexp::IGNORECASE)%>
+                <% if m.match(txt)%>
+                <%httpurl1=m.match(txt)[1]%>
+                <%url = "("<<httpurl1<<")"<< "\n"%>
+                <%#= puts url.gsub(/[()]/, "")%>
+                <%=cl_image_tag(url.gsub(/[()]/, ""), :width=>100, :height=>100, :gravity=>"face", :radius=>"max", :effect=>"sharpen", :crop=>"thumb")%>
+            <% end%>
         </div>
-        <p class="post-meta">
-            Posted by <%= link_to "Ime Isa", flaka_path %> on <%= post.created_at.strftime('%b %d, %Y')%>
-        </p>
     </div>
     <hr>
 <% end %>

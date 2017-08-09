@@ -96,6 +96,7 @@ class PostsController < ApplicationController
 			@posts = Post.limit(5).where.not(id: 6)
 		end
 
+
 	    respond_to do |format|
 	      format.html
 	      format.js

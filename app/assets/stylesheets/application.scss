@@ -17,41 +17,41 @@ body {
   font-size: 20px;
   color: #333333;
 }
-#img-header{
+#img-header {
   background-image: url(home-bg.jpg);
 }
-#img-about{
+#img-about {
   background-image: url(flaka.jpg);
 }
-#img-contact{
+#img-contact {
   background-image: url(contact.jpg);
 }
-#img-cat{
+#img-cat {
   background-image: url(cat.jpg);
 }
-#img-video{
+#img-video {
   background-image: url(video.jpg); 
 }
 #img-lock {
   background-image: url(lock.jpg);
 }
-#img-insta{
+#img-insta {
   background-image: url(insta.jpg);
 }
-.click{
+.click {
   cursor: pointer;
 }
-.in{
+.in {
   display: inline-flex;
 }
-.cat-cat{
+.cat-cat {
   display: inline-block;
   margin-bottom: .4em;
 }
-a.deco-none{
+a.deco-none {
   text-decoration: none;
 }
-a.col1{
+a.col1 {
   color: #15b6b8;
 }
 p {
@@ -93,7 +93,8 @@ hr.small {
 }
 .navbar-custom {
   position: absolute;
-  top: 0;
+/*  top: 0;*/
+  top: 80;
   left: 0;
   width: 100%;
   z-index: 3;
@@ -117,7 +118,8 @@ hr.small {
 @media only screen and (min-width: 768px) {
   .navbar-custom {
     background: transparent;
-    border-bottom: 1px solid transparent;
+    /*border-bottom: 1px solid transparent;*/
+    border: transparent;
   }
   .navbar-custom .navbar-brand {
     color: white;

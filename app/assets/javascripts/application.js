@@ -21,6 +21,9 @@
 
 // when the page is ready for manipulation
 $(document).on('turbolinks:load', function() {
+
+    $( "img" ).addClass( "img-responsive" );
+
     // when the load more link is clicked
     $('a.click.mas').click(function (e) {
         // prevent the default click action
@@ -63,6 +66,6 @@ $(document).on('turbolinks:load', function() {
                 };
             }
         });
-
     });
+
 });

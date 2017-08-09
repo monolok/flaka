@@ -113,17 +113,16 @@
     <!-- Small modal -->
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
+        <div class="modal-content pad5">
             <h4 class="modal-title text-center text-primary">- SEGUIME -</h4>
             <p>Dejame tu dirección de Correo Electronico y te avisaré cada vez que haya un nuevo post!</p>
-            <p>Únete a otros 30000000 seguidores</p>
-            <form class="text-center">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-              </div>
-              <button type="button" class="btn btn-primary btn-lg text-center">SEGUIR</button>
-            </form>
+            <%=form_for new_subscriber, :html => {:class => "text-center"} do |s|%>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <%=s.email_field :email, placeholder: "Tu e-mail", class: "form-control", id:"exampleInputEmail1" %>
+                </div>
+                <%=s.submit "SEGUIR", class: "btn btn-primary btn-lg text-center"%>
+            <%end%>
         </div>
       </div>
     </div>

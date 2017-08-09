@@ -8,10 +8,10 @@
             </a>
 		</div>
 		<div class="col-xs-3">
-			<a href="#" target="_blank">
+			<a class="click" data-toggle="modal" data-target="#myModal2">
                 <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+                    <i class="fa fa-envelope-open-o fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
 		</div>
@@ -48,6 +48,23 @@
                     <%=cl_image_tag("#{img['url']}", :width => 100, :height => 150, :crop => :fill)%>
                 </a>
                 <%= link_to "delete", delete_image_path("#{img['public_id']}"), method: :delete%>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal2 -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">My subscribers</h4>
+          </div>
+          <div class="modal-body">
+            <%subscriber_all.each do |s|%>
+              <p><%= s.email%> | <%= link_to "delete", remove_subscriber_path(s.id), method: :delete%></p>
             <%end%>
           </div>
         </div>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :show, :destroy]
-	before_action :authenticate_admin!, except: [:index, :show, :about, :articulos, :contact, :instagram, :video, :mailer_guest]
+	before_action :authenticate_admin!, except: [:index, :show, :about, :articulos, :contact, :instagram, :video, :mailer_guest, :mailer_subscriber]
 
 	def index
 		@post = Post.find(3) #Post.where(title: "Por qué estás aquí?").first
@@ -132,6 +132,17 @@ class PostsController < ApplicationController
 		GuestMailer.send_contact(@subject, @message, @guest_mail).deliver_now
 		flash[:mail] = "Mail sent"
 		redirect_to contact_path
+	end
+
+	def mailer_subscriber
+		Subscriber.create(email: params[:subscriber][:email])
+		flash[:subscribe] = "Listo para ser feliz !"
+		redirect_to articulos_path
+	end
+
+	def remove_subscriber
+		Subscriber.find(params[:id]).delete
+		redirect_to new_post_path
 	end
 
   private

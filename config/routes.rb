@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   delete "/delete_img/:url", to: "posts#delete_img", as: "delete_image"
 
   post "/send", to: "posts#mailer_guest", as: "send"
+  post "subscribe", to: "posts#mailer_subscriber", as: "subscribers"
+  delete "subscriber/:id", to: "posts#remove_subscriber", as: "remove_subscriber"
 end

@@ -1,0 +1,48 @@
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" id="img-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1><%= @post_title %></h1>
+                        <p class="subheading">
+                            <div class="in">
+                                Compártelo: <%= social_share_button_tag("test") %>
+                            </div>                            
+                        </p>
+                        <span class="meta">Posted by <a href="#">Ime Isa</a> on <%= @post_created_at %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div>
+                        <div class="cat-cat">
+                            <% @post_categories.each do |cat|%>
+                                <span><%= link_to cat.name.upcase, category_path(cat.id), class: "col1 click deco-none"%></span> |
+                            <%end%>
+                        </div>
+                    </div>
+                    <div><%= raw @post_body %></div>
+                    <p class="subheading">
+                        <div class="in">
+                            Compártelo: <%= social_share_button_tag("test") %>
+                        </div>                        
+                    </p>
+                    <p>
+                        <div class="cat-cat">
+                            <a href="" class="deco-none">#TAG1</a>,
+                            <a href="" class="deco-none">#TAG2</a>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>

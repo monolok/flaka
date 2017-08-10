@@ -107,6 +107,7 @@ class PostsController < ApplicationController
 	end
 
 	def instagram
+		
 	end
 
 	def video

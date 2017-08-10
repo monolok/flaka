@@ -29,6 +29,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <% if admin_signed_in? %>
+                    <%= link_to 'Editar mi portada', edit_post_path(7), class: "text-danger" %>
+                <% end %>
                 <h3><%= @post.title %></h3><%= social_share_button_tag(@post.title) %>
                 <div><%= raw @post.body %></div>
             </div>

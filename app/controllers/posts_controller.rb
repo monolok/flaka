@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :authenticate_admin!, except: [:index, :show, :about, :articulos, :contact, :instagram, :video, :mailer_guest, :mailer_subscriber]
 
 	def index
-		@post = Post.find(3) #Post.where(title: "Por qué estás aquí?").first
+		@post = Post.find(7) #Post.where(title: "Por qué estás aquí?").first
 	end
 
 	def new
@@ -107,7 +107,6 @@ class PostsController < ApplicationController
 	end
 
 	def instagram
-		
 	end
 
 	def video

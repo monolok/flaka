@@ -84,16 +84,23 @@ class PostsController < ApplicationController
 	end
 
 	def articulos
+
+		no_tags = [6, 7]
+
 		if not params[:cat_id].nil?
 			@category_true = true
 			@category_on = Category.find(params[:cat_id])
-			@posts = @category_on.posts.where.not(id: 6)
+			@posts = @category_on.posts.where('id NOT IN (SELECT id FROM posts WHERE id IN (?))', 
+  		no_tags) #not(id: 6)
 		elsif not params[:search].nil?
-			@posts = Post.search(params[:search]).where.not(id: 6)
+			@posts = Post.search(params[:search]).where('id NOT IN (SELECT id FROM posts WHERE id IN (?))', 
+  		no_tags) #.not(id: 6)
 		elsif params[:id]
-			@posts = Post.where('id < ?', params[:id]).limit(5).where.not(id: 6)
+			@posts = Post.where('id < ?', params[:id]).limit(5).where('id NOT IN (SELECT id FROM posts WHERE id IN (?))', 
+  		no_tags) #.not(id: 6)
 		else
-			@posts = Post.limit(5).where.not(id: 6)
+			@posts = Post.limit(5).where('id NOT IN (SELECT id FROM posts WHERE id IN (?))', 
+  		no_tags) #.not(id: 6)
 		end
 
 

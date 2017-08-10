@@ -8,7 +8,7 @@
                         <h1><%= @post.title %></h1>
                         <p class="subheading">
                             <div class="in">
-                                Compártelo: <%= social_share_button_tag("test") %>
+                                Compártelo: <%= social_share_button_tag(@post.title) %>
                             </div>                            
                         </p>
                         <span class="meta">Posted by <%= link_to "Ime Isa", flaka_path %> on <%= @post.created_at.strftime('%b %d, %Y') %></span>
@@ -37,7 +37,7 @@
                     <div><%= raw @post.body %></div>
                     <p class="subheading">
                         <div class="in">
-                            Compártelo: <%= social_share_button_tag("test") %>
+                            Compártelo: <%= social_share_button_tag(@post.title) %>
                         </div>                        
                     </p>
                     <p>

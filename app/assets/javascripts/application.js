@@ -44,7 +44,7 @@ $(document).on('turbolinks:load', function() {
             // make a get request to the server
             type: "GET",
             // get the url from the href attribute of our link
-            url: "/articulos",
+            url: "/blog",
             // send the last id to our rails app
             data: {
                 id: last_id
@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', function() {
             success: function () {
                 var showing_posts = document.getElementsByClassName("post-preview").length;
                 var post_count = document.getElementById("ajax_articulos").dataset.id;
-                if (showing_posts == (post_count-1)) {
+                if (showing_posts > post_count) {
                     $('a.click.mas').hide();
                 }else{
                     // hide the loading gif

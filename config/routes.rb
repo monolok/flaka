@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   devise_for :admins
   mount Ckeditor::Engine => '/ckeditor'
 
-  get "/flaka", to: "posts#about", as: "flaka"
-  get "/articulos", to: "posts#articulos", as: "articulos"
+  get "/imeisa", to: "posts#about", as: "flaka"
+  get "/blog", to: "posts#articulos", as: "articulos"
   get "/category/:cat_id", to: "posts#articulos", as: "category"
   get "/contact", to: "posts#contact", as: "contact"
   get "/instagram", to: "posts#instagram", as: "instagram"
-  get "/video", to: "posts#video", as: "video"
+  get "/youtube", to: "posts#video", as: "video"
   post "video/add", to: "posts#add_link", as: "add_link"
   delete "video/:id", to: "posts#remove_link", as: "remove_link"
  

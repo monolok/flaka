@@ -12,12 +12,13 @@
             <h2 class="post-title">
                 <%= link_to post.title, post%>
             </h2>
-            <div class="in">
-                <%= social_share_button_tag("test") %>
-            </div>
+            <p><%= raw post.body.truncate(200)%> <%= link_to "Leer mas", post, class: "text-success"%></p>
             <p class="post-meta">
                 Posted by <%= link_to "Ime Isa", flaka_path %> on <%= post.created_at.strftime('%b %d, %Y')%>
             </p>
+            <div class="in">
+                <%= social_share_button_tag(post.title) %>
+            </div>
         </div>
         <div class="col-xs-7">
             <% txt=post.body%></p>
@@ -26,7 +27,7 @@
                 <%httpurl1=m.match(txt)[1]%>
                 <%url = "("<<httpurl1<<")"<< "\n"%>
                 <%#= puts url.gsub(/[()]/, "")%>
-                <%=cl_image_tag(url.gsub(/[()]/, ""), :width=>100, :height=>100, :gravity=>"face", :radius=>"max", :effect=>"sharpen", :crop=>"thumb")%>
+                <%=cl_image_tag(url.gsub(/[()]/, ""), :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :effect=>"sharpen", :crop=>"thumb")%>
             <% end%>
         </div>
     </div>

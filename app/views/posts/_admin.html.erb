@@ -42,12 +42,18 @@
             <h4 class="modal-title" id="myModalLabel">Images URL</h4>
           </div>
           <div class="modal-body">
+            <p>Server Images</p>
             <%@images_url.each do |img|%>
-                <%#= %>
                 <a href="<%=img['url']%>" target="_blank">
                     <%=cl_image_tag("#{img['url']}", :width => 100, :height => 150, :crop => :fill)%>
                 </a>
                 <%= link_to "delete", delete_image_path("#{img['public_id']}"), method: :delete%>
+            <%end%>
+            <p>Instagram Images</p>
+            <%@our_data.each do |data|%>
+                <a href="<%=data.images.thumbnail.url%>" target="_blank">
+                  <%=cl_image_tag("#{data.images.thumbnail.url}", :width => 100, :height => 150, :crop => :fill)%>
+                </a>
             <%end%>
           </div>
         </div>

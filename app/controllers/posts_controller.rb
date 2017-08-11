@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :show, :destroy]
-	before_action :authenticate_admin!, except: [:index, :show, :about, :articulos, :contact, :instagram, :video, :mailer_guest, :mailer_subscriber]
+	before_action :authenticate_admin!, except: [:index, :show, :about, :articulos, :contact, :instagram, :privacy, :video, :mailer_guest, :mailer_subscriber]
 
 	def index
 		@post = Post.find(7) #Post.where(title: "Por qué estás aquí?").first
@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 	    @category = Category.new
 	    @categories = Category.all
 	    @images_url = Cloudinary::Api.resources["resources"]
+	    @our_data = Instagram.user_recent_media
 	end
 
 	def create
@@ -114,6 +115,15 @@ class PostsController < ApplicationController
 	end
 
 	def instagram
+		#http://www.rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Client
+		#code = params[:code]
+		#data = Instagram.get_access_token(code, client_id: client_id, client_secret: client_secret, grant_type: grant_type, redirect_uri: redirect_uri)
+		#access_token = data.access_token	
+		@our_data = Instagram.user_recent_media
+
+	end
+
+	def privacy
 	end
 
 	def video

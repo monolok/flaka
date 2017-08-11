@@ -22,36 +22,13 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    <img src="..." alt="...">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    <img src="..." alt="...">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    <img src="..." alt="...">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    <img src="..." alt="...">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    <img src="..." alt="...">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    <img src="..." alt="...">
-                </a>
-            </div>
+            <% @our_data.each do |data| %>
+                <div class="col-xs-6 col-md-3">
+                    <a href="<%= data.link%>" class="thumbnail">
+                        <img src="<%= data.images.thumbnail.url%>" alt="<%= data.tags%>">
+                    </a>
+                </div>
+            <%end%>
         </div> 
     </div>
     

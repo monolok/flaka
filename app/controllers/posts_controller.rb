@@ -47,8 +47,9 @@ class PostsController < ApplicationController
   	end
 
 	def edit
-		@categories = Category.all
-		@images_url = Cloudinary::Api.resources["resources"]
+	    @categories = Category.all
+	    @images_url = Cloudinary::Api.resources["resources"]
+	    @our_data = Instagram.user_recent_media
 	end
 
 	def update

@@ -24,7 +24,7 @@
         <div class="row">
             <% @our_data.each do |data| %>
                 <div class="col-xs-6 col-md-3">
-                    <a href="<%= data.link%>" class="thumbnail">
+                    <a href="<%= data.link%>" class="thumbnail" target="_blank">
                         <img src="<%= data.images.thumbnail.url%>" alt="<%= data.tags%>">
                     </a>
                 </div>

@@ -118,8 +118,9 @@ class PostsController < ApplicationController
 	def instagram
 		#http://www.rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Client
 		#code = params[:code]
-		#data = Instagram.get_access_token(code, client_id: client_id, client_secret: client_secret, grant_type: grant_type, redirect_uri: redirect_uri)
+		#data = Instagram.get_access_token(code)
 		#access_token = data.access_token	
+		#@our_data = access_token
 		@our_data = Instagram.user_recent_media
 
 	end

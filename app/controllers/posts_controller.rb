@@ -121,7 +121,7 @@ class PostsController < ApplicationController
 		#data = Instagram.get_access_token(code)
 		#access_token = data.access_token	
 		#@our_data = access_token
-		@our_data = Instagram.user_recent_media
+		#@our_data = Instagram.user_recent_media
 
 	end
 

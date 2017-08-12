@@ -116,13 +116,12 @@ class PostsController < ApplicationController
 	end
 
 	def instagram
-		#http://www.rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Client
-		#code = params[:code]
-		#data = Instagram.get_access_token(code)
-		#access_token = data.access_token	
-		#@our_data = access_token
-		#@our_data = Instagram.user_recent_media
-
+		# http://www.rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Client
+		# code = params[:code]
+		# data = Instagram.get_access_token(code)
+		# access_token = data.access_token	
+		# @our_data = access_token
+		# @our_data = Instagram.user_recent_media
 	end
 
 	def privacy

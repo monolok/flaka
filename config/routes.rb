@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/blog", to: "posts#articulos", as: "articulos"
   get "/category/:cat_id", to: "posts#articulos", as: "category"
   get "/youtube", to: "posts#video", as: "video"
-  get "/instagram", to: "posts#instagram" #callback from API
+  #get "/instagram", to: "posts#instagram" #callback from API
   get "/contact", to: "posts#contact", as: "contact"
 
   post "video/add", to: "posts#add_link", as: "add_link"

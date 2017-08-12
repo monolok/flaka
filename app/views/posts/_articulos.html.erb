@@ -21,12 +21,11 @@
             </div>
         </div>
         <div class="col-xs-7">
-            <% txt=post.body%></p>
-                <% m=Regexp.new('((?:http|https)(?::\\/{2}[\\w]+)(?:[\\/|\\.]?)(?:[^\\s"]*))',Regexp::IGNORECASE)%>
-                <% if m.match(txt)%>
+            <% txt=post.body%>
+            <% m=Regexp.new('((?:http|https)(?::\\/{2}[\\w]+)(?:[\\/|\\.]?)(?:[^\\s"]*))',Regexp::IGNORECASE)%>
+            <% if m.match(txt)%>
                 <%httpurl1=m.match(txt)[1]%>
                 <%url = "("<<httpurl1<<")"<< "\n"%>
-                <%#= puts url.gsub(/[()]/, "")%>
                 <%=cl_image_tag(url.gsub(/[()]/, ""), :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :effect=>"sharpen", :crop=>"thumb")%>
             <% end%>
         </div>

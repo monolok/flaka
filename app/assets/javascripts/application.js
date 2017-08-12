@@ -22,6 +22,11 @@
 // when the page is ready for manipulation
 $(document).on('turbolinks:load', function() {
 
+    if (document.getElementById("img-header-show") !== null) {
+        var url = document.getElementsByTagName("img")[0].src;
+        $("#img-header-show").css("background-image", "url("+url+")");
+    };
+
     $( "img" ).addClass( "img-responsive" );
 
     // when the load more link is clicked
